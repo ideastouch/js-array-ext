@@ -1,0 +1,33 @@
+{
+  "name": "@ideastouch/js-array-ext",
+  "version": "0.0.1",
+  "description": "JavaScript Array Extension",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideastouch/js-array-ext.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "JS",
+    "Array",
+    "Operation",
+    "Extension"
+  ],
+  "author": "Gustavo Halperin <gustavoh@ideastouch.com> (http://www.ideastouch.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ideastouch/js-array-ext/issues"
+  },
+  "homepage": "https://github.com/ideastouch/js-array-ext#readme",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  }
+}
