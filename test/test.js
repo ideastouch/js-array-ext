@@ -34,11 +34,6 @@ describe('#numFormatter', function() {
         expect(result).to.equal('123,456');
     });
 
-    it('should convert 7 digits', function() {
-        var result = numFormatter(1234567);
-        expect(result).to.equal('1,234,567');
-    });
-
     it('should convert 8 digits', function() {
         var result = numFormatter(12345678);
         expect(result).to.equal('12,345,678');
