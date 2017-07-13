@@ -1,10 +1,10 @@
-# js-array-ext
-JavaScript Array Extensions
+![travis build results]
+(https://travis-ci.org/ideastouch/js-array-ext.svg?branch=master)
 
 JavaScript Array Extension
 =========
 
-A small library array common operations
+A small library with array common operations
 
 ## Installation
 
