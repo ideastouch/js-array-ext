@@ -47,6 +47,10 @@ const _filterFunction = compareFunction =>
 	(currentValue, index, srt) =>
 		(index === 0) ? true : compareFunction(currentValue, srt[index - 1]) !== 0;
 
+const filter = (srt, compareFunction) => srt.filter(_filterFunction(compareFunction));
+
+const sortFilter = (array, compareFunction) => filter(sort(array, compareFunction), compareFunction);
+
 const _notEqualFunction = (srt, equalValue) =>
 	(currentValue, index) => equalValue(currentValue, srt[index]) === false;
 
@@ -96,6 +100,8 @@ const mutualExclusion = (srt1, srt2, compareFunction) =>
 
 // Commented Code: module.exports.cloneObject = cloneObject;
 module.exports.sort = sort;
+module.exports.filter = filter;
+module.exports.sortFilter = sortFilter;
 module.exports.equal = equal;
 module.exports.compare = compare;
 module.exports.union = union;

@@ -1,6 +1,6 @@
 'use strict';
 import test from 'ava';
-import {sort, equal, compare, union, sliceFind, intersection, exclusion} from './';
+import {sort, filter, sortFilter, equal, compare, union, sliceFind, intersection, exclusion} from './';
 
 const srt = [0, 1, 2, 3, 4, 5];
 console.log('srt: ' + srt);
@@ -99,6 +99,8 @@ const peopleSortByFirstName = sort(people, compareFirstNames);
 console.log('People sort by first name: \n' + printPeople(peopleSortByFirstName));
 const peopleSortByLastName = sort(people, compareLastNames);
 console.log('People sort by last name: \n' + printPeople(peopleSortByLastName));
+console.log('People sort by last name and filter: \n' + printPeople(filter(peopleSortByLastName, compareLastNames)));
+console.log('People sort by last name and filter: \n' + printPeople(sortFilter(people, compareLastNames)));
 const peopleSortByAge = sort(people, compareAges);
 console.log('People sort by age: \n' + printPeople(peopleSortByAge));
 const peopleSortBySport = sort(people, compareSports);
