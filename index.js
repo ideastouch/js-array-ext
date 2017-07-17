@@ -43,6 +43,8 @@ function cloneObject(obj) {
 
 const sort = (array, compareFunction) => array.slice(0).sort(compareFunction);
 
+const testFunction = (value2, compareFunction) => value1 => compareFunction(value1, value2);
+
 const _filterFunction = compareFunction =>
 	(currentValue, index, srt) =>
 		(index === 0) ? true : compareFunction(currentValue, srt[index - 1]) !== 0;
@@ -98,6 +100,24 @@ const exclusion = (srt1, srt2, compareFunction) =>
 const mutualExclusion = (srt1, srt2, compareFunction) =>
 	srt1.concat(srt2).sort(compareFunction).filter(_filterFunction(compareFunction));
 
+const _findIndexBinary = (srt, testFunction) => {
+	let start = 0;
+	let stop = srt.length - 1;
+	let middle = Math.floor((stop + start) / 2);
+	while (testFunction(srt[middle]) !== 0 && start < stop) {
+		if (testFunction(srt[middle]) > 0) {
+			stop = middle - 1;
+		} else {
+			start = middle + 1;
+		}
+		middle = Math.floor((stop + start) / 2);
+	}
+	return (testFunction(srt[middle]) === 0) ? middle : -1;
+};
+
+const findIndexBinary = (srt, value, compareFunction) =>
+	_findIndexBinary(srt, testFunction(value, compareFunction));
+
 // Commented Code: module.exports.cloneObject = cloneObject;
 module.exports.sort = sort;
 module.exports.filter = filter;
@@ -109,3 +129,4 @@ module.exports.sliceFind = sliceFind;
 module.exports.intersection = intersection;
 module.exports.exclusion = exclusion;
 module.exports.mutualExclusion = mutualExclusion;
+module.exports.findIndexBinary = findIndexBinary;

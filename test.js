@@ -1,6 +1,6 @@
 'use strict';
 import test from 'ava';
-import {sort, filter, sortFilter, equal, compare, union, sliceFind, intersection, exclusion} from './';
+import {sort, filter, sortFilter, equal, compare, union, sliceFind, intersection, exclusion, findIndexBinary} from './';
 
 const srt = [0, 1, 2, 3, 4, 5];
 console.log('srt: ' + srt);
@@ -63,6 +63,15 @@ test('exclusion', t => {
 	srtExclusion = exclusion(srt2, srt1, compareNumber);
 	value = compare(srtExclusion, [4, 5, 6], compareNumber);
 	t.true(value === 0, 'Exclusion of second and first arrays ');
+});
+
+test('findIndexBinary', t => {
+	let index = findIndexBinary(srtBig, 1, compareNumber);
+	t.true(index !== -1, 'Find Index of 1 using Binary algorithm.');
+	index = findIndexBinary(srtBig, 3, compareNumber);
+	t.true(index !== -1, 'Find Index of 3 using Binary algorithm.');
+	index = findIndexBinary(srtBig, 6, compareNumber);
+	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
 });
 
 const people = [
