@@ -1,6 +1,8 @@
 'use strict';
 import test from 'ava';
-import {sort, filter, sortFilter, equal, compare, union, sliceFind, intersection, exclusion, findIndexBinary} from './';
+import {sort, filter, sortFilter, equal, compare,
+	union, sliceFind, intersection, exclusion,
+	findIndexBinary} from './';
 
 const srt = [0, 1, 2, 3, 4, 5];
 console.log('srt: ' + srt);
@@ -13,6 +15,7 @@ console.log('srt1: ' + srt1);
 const srt2 = srtBig.slice(0, 1).concat(srtBig.slice(3));
 console.log('srt2: ' + srt2);
 const compareNumber = (num1, num2) => num1 - num2;
+const srt100 = Array.from(Array(100).keys());
 
 test('equal', t => {
 	let value = equal(srt, srtCopy, compareNumber);
@@ -71,6 +74,10 @@ test('findIndexBinary', t => {
 	index = findIndexBinary(srtBig, 3, compareNumber);
 	t.true(index !== -1, 'Find Index of 3 using Binary algorithm.');
 	index = findIndexBinary(srtBig, 6, compareNumber);
+	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
+	index = findIndexBinary(srt100, 25, compareNumber);
+	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
+	index = findIndexBinary(srt100, 75, compareNumber);
 	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
 });
 
