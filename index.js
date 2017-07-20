@@ -41,6 +41,17 @@ function cloneObject(obj) {
 }
 */
 
+/**
+ * combine call to processFunction wich each possible combination of elements in arr1 and arr2
+ * and return a array with the result of each call to processFunction.
+ *
+ * @param {*} arr1, array of elements.
+ * @param {*} arr2, array of elements.
+ * @param {*} processFunction, this function will get each combination of arr1 and arr2 element and return new element.
+ */
+const combine = (arr1, arr2, processFunction) =>
+	arr1.map(e1 => arr2.map(e2 => processFunction(e1, e2))).reduce((t, c) => t.concat(c), []);
+
 const sort = (array, compareFunction) => array.slice(0).sort(compareFunction);
 
 const testFunction = (value2, compareFunction) => value1 => compareFunction(value1, value2);
@@ -119,6 +130,7 @@ const findIndexBinary = (srt, value, compareFunction) =>
 	_findIndexBinary(srt, testFunction(value, compareFunction));
 
 // Commented Code: module.exports.cloneObject = cloneObject;
+module.exports.combine = combine;
 module.exports.sort = sort;
 module.exports.filter = filter;
 module.exports.sortFilter = sortFilter;

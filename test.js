@@ -1,6 +1,6 @@
 'use strict';
 import test from 'ava';
-import {sort, filter, sortFilter, equal, compare,
+import {combine, sort, filter, sortFilter, equal, compare,
 	union, sliceFind, intersection, exclusion,
 	findIndexBinary} from './';
 
@@ -16,6 +16,16 @@ const srt2 = srtBig.slice(0, 1).concat(srtBig.slice(3));
 console.log('srt2: ' + srt2);
 const compareNumber = (num1, num2) => num1 - num2;
 const srt100 = Array.from(Array(100).keys());
+
+test('combine', t => {
+	const arr1 = [0, 1, 2];
+	const arr2 = [3, 4, 5];
+	const processFunction = (el1, el2) => el1 + el2;
+	const arr = combine(arr1, arr2, processFunction);
+	const result = [0 + 3, 0 + 4, 0 + 5, 1 + 3, 1 + 4, 1 + 5, 2 + 3, 2 + 4, 2 + 5];
+	const value = equal(arr, result, compareNumber);
+	t.true(value, 'Combine two arrays');
+});
 
 test('equal', t => {
 	let value = equal(srt, srtCopy, compareNumber);
