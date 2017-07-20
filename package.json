@@ -1,6 +1,6 @@
 {
   "name": "@ideastouch/js-array-ext",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "JavaScript Array Extension",
   "main": "index.js",
   "engines": {
