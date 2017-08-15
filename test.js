@@ -1,8 +1,8 @@
 'use strict';
 import test from 'ava';
-import {combine, sort, filter, sortFilter, equal, compare,
-	union, sliceFind, intersection, exclusion,
-	findIndexBinary} from './';
+import {combine, sort, removeEquals, sortFilter, equal, compare,
+	union, sliceFind, intersection, exclusion, mutualExclusion
+	} from './';
 
 const srt = [0, 1, 2, 3, 4, 5];
 console.log('srt: ' + srt);
@@ -15,7 +15,16 @@ console.log('srt1: ' + srt1);
 const srt2 = srtBig.slice(0, 1).concat(srtBig.slice(3));
 console.log('srt2: ' + srt2);
 const compareNumber = (num1, num2) => num1 - num2;
-const srt100 = Array.from(Array(100).keys());
+// Commented: const srt100 = Array.from(Array(100).keys());
+
+test('equal', t => {
+	let value = equal(srt, srtCopy, compareNumber);
+	t.true(value, 'Two equal arrays equals');
+	value = equal(srt, srtBig, compareNumber);
+	t.false(value, 'One array not equal to a bigger one');
+	value = equal(srtBig, srt, compareNumber);
+	t.false(value, 'One array not equal to an smaller one');
+});
 
 test('combine', t => {
 	const arr1 = [0, 1, 2];
@@ -25,15 +34,6 @@ test('combine', t => {
 	const result = [0 + 3, 0 + 4, 0 + 5, 1 + 3, 1 + 4, 1 + 5, 2 + 3, 2 + 4, 2 + 5];
 	const value = equal(arr, result, compareNumber);
 	t.true(value, 'Combine two arrays');
-});
-
-test('equal', t => {
-	let value = equal(srt, srtCopy, compareNumber);
-	t.true(value, 'Two equal arrays equals');
-	value = equal(srt, srtBig, compareNumber);
-	t.false(value, 'One array not equal to a bigger one');
-	value = equal(srtBig, srt, compareNumber);
-	t.false(value, 'Onearray not equal to an smaller one');
 });
 
 test('compare', t => {
@@ -78,17 +78,13 @@ test('exclusion', t => {
 	t.true(value === 0, 'Exclusion of second and first arrays ');
 });
 
-test('findIndexBinary', t => {
-	let index = findIndexBinary(srtBig, 1, compareNumber);
-	t.true(index !== -1, 'Find Index of 1 using Binary algorithm.');
-	index = findIndexBinary(srtBig, 3, compareNumber);
-	t.true(index !== -1, 'Find Index of 3 using Binary algorithm.');
-	index = findIndexBinary(srtBig, 6, compareNumber);
-	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
-	index = findIndexBinary(srt100, 25, compareNumber);
-	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
-	index = findIndexBinary(srt100, 75, compareNumber);
-	t.true(index !== -1, 'Find Index of 6 using Binary algorithm.');
+test('mutualExclusion', t => {
+	let srtMutalExclusion = mutualExclusion(srt1, srt2, compareNumber);
+	let value = compare(srtMutalExclusion, [1, 2, 4, 5, 6], compareNumber);
+	t.true(value === 0, 'Exclusion of first and second arrays ');
+	srtMutalExclusion = mutualExclusion(srt2, srt1, compareNumber);
+	value = compare(srtMutalExclusion, [1, 2, 4, 5, 6], compareNumber);
+	t.true(value === 0, 'Exclusion of second and first arrays ');
 });
 
 const people = [
@@ -125,7 +121,7 @@ const peopleSortByFirstName = sort(people, compareFirstNames);
 console.log('People sort by first name: \n' + printPeople(peopleSortByFirstName));
 const peopleSortByLastName = sort(people, compareLastNames);
 console.log('People sort by last name: \n' + printPeople(peopleSortByLastName));
-console.log('People sort by last name and filter: \n' + printPeople(filter(peopleSortByLastName, compareLastNames)));
+console.log('People sort by last name and filter: \n' + printPeople(removeEquals(peopleSortByLastName, compareLastNames)));
 console.log('People sort by last name and filter: \n' + printPeople(sortFilter(people, compareLastNames)));
 const peopleSortByAge = sort(people, compareAges);
 console.log('People sort by age: \n' + printPeople(peopleSortByAge));
