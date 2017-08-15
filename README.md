@@ -53,8 +53,8 @@ All the functions in this library are built base on current JS Array methods (se
 	
 	// BTW: If we want a new list of sorted points base on point distance
 	// to origin (0, 0) we can just do:
-  var DD = p => p.x * p.x + p.y * p.y; // DD is for Delta * Delta.
-  var DDCompare = (p1, p2) => DD(p1) - DD(p2);
+	var DD = p => p.x * p.x + p.y * p.y; // DD is for Delta * Delta.
+	var DDCompare = (p1, p2) => DD(p1) - DD(p2);
 	var srtPnts = idtArray.sort(points, DDCompare);
 
 ## Tests
