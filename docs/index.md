@@ -1,5 +1,6 @@
 # Global
-
+[github](https://github.com/ideastouch/js-array-ext) |
+[npm](https://www.npmjs.com/package/@ideastouch/js-array-ext)
 
 
 

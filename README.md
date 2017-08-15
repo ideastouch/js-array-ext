@@ -1,4 +1,4 @@
-![travis build results](https://travis-ci.org/ideastouch/js-array-ext.svg?branch=master)
+![travis build results](https://travis-ci.org/ideastouch/js-array-ext.svg?branch=master)    
 
 JavaScript Array Extension
 =========
@@ -20,6 +20,10 @@ All the functions in this library are built base on current JS Array methods (se
 ## Installation
 
   `npm install @ideastouch/js-array-ext`
+
+## API
+- Markdown style documentation: [API-MD](https://github.com/ideastouch/js-array-ext/blob/master/docs/index.md)
+- HTML style documentation: [API-HTML](https://htmlpreview.github.io/?https://github.com/ideastouch/js-array-ext/blob/master/html/global.html)
 
 ## Usage
 
