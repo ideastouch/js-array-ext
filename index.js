@@ -10,7 +10,7 @@ const _MESSAGE_OF_NOT_SUPPORT_ARGUMENTS	= (argName, argObject) => typeof argObje
  * Call to processFunction wich each possible combination of elements in arr1 and arr2
  * and return an array with the result of each call to processFunction. ej. We have two list of coords and
  * we want all possible combinations of points. Simple as call this functions with the list and the constructor.
- * 
+ *
  * @param {Array} arr1 Unsorted array.
  * @param {Array} arr2 Unsorted array.
  * @param {Array} processFunction Two arguments function which return a new element.
