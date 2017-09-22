@@ -3,6 +3,12 @@
 JavaScript Array Extension
 =========
 
+#  WARNING!!!! The npm scope of this package was remove from his name.
+Please not install this package anymore, insetad go to (https://www.npmjs.com/package/js-array-ext).
+## Installation
+
+	`npm install js-array-ext`
+
 A small library with array generic operations.
 
 ### Philosophy under the hood
@@ -19,7 +25,8 @@ All the functions in this library are built base on current JS Array methods (se
 
 ## Installation
 
-  `npm install js-array-ext`
+  ~~`npm install js-array-ext`~~
+	`npm install js-array-ext`
 
 ## API
 - Markdown style documentation: [API-MD](https://github.com/ideastouch/js-array-ext/blob/master/docs/index.md)
@@ -27,7 +34,7 @@ All the functions in this library are built base on current JS Array methods (se
 
 ## Usage
 
-    var idtArray = require('@ideastouch/js-array-ext');
+  var idtArray = require('@ideastouch/js-array-ext');
 	var srt = [0, 1, 2, 3, 4, 5];
 	var compareNumber = (num1, num2) => num1 - num2;
 	var srtSliceFind = idtArray.sliceFind(srt, 3, compareNumber);
