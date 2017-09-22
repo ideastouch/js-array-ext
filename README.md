@@ -41,9 +41,7 @@ var yCoords = [1, 5, 2, 4];
 var points = [];
 xCoords.forEach(x => {
 	yCoords.forEach(y, => {
-		points.push({x, y});
-	})
-});
+		points.push({x, y}); }) });
 ```
 
 ### After
