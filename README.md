@@ -2,14 +2,12 @@
 
 JavaScript Array Extension
 =========
-
 A small library with array generic operations.
 
 #  WARNING!!!! The npm scope of this package was remove from his name.
 Please do not install this package anymore, instead go to <https://www.npmjs.com/package/js-array-ext>.
 
 ## Installation
-
 	`npm install js-array-ext`
 
 ### Philosophy under the hood
@@ -27,6 +25,7 @@ All the functions in this library are built base on current JS Array methods (se
 ## Installation
 
   ~~`npm install js-array-ext`~~
+
 	`npm install js-array-ext`
 
 ## API
