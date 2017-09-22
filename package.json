@@ -1,6 +1,6 @@
 {
   "name": "js-array-ext",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "JavaScript Array Extension",
   "main": "index.js",
   "engines": {
