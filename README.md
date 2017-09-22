@@ -25,7 +25,7 @@ All the functions in this library are built base on current JS Array methods (se
 
 ## Usage
 ```javascript
-var idtArray = require('@ideastouch/js-array-ext');
+import idtArray from 'js-array-ext';
 var srt = [0, 1, 2, 3, 4, 5];
 var compareNumber = (num1, num2) => num1 - num2;
 var srtSliceFind = idtArray.sliceFind(srt, 3, compareNumber);
@@ -44,7 +44,7 @@ xCoords.forEach(x => yCoords.forEach(y, => points.push({x, y}) ) );
 
 ### After
 ```javascript
-var idtArray = require('@ideastouch/js-array-ext');
+import idtArray from 'js-array-ext';
 var xCoords = [3, 4, 6, 8];
 var yCoords = [1, 5, 2, 4];
 // We provide the combine function, we do not need call twice forEach anymore.
