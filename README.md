@@ -3,13 +3,14 @@
 JavaScript Array Extension
 =========
 
+A small library with array generic operations.
+
 #  WARNING!!!! The npm scope of this package was remove from his name.
-Please not install this package anymore, insetad go to (https://www.npmjs.com/package/js-array-ext).
+Please do not install this package anymore, instead go to <https://www.npmjs.com/package/js-array-ext>.
+
 ## Installation
 
 	`npm install js-array-ext`
-
-A small library with array generic operations.
 
 ### Philosophy under the hood
 I think that most of the time what algorithm's programer does is iterate in different ways over one or many list of element and for each iteration applying a process.
