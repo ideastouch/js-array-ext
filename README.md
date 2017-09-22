@@ -19,7 +19,7 @@ All the functions in this library are built base on current JS Array methods (se
 
 ## Installation
 
-  `npm install @ideastouch/js-array-ext`
+  `npm install js-array-ext`
 
 ## API
 - Markdown style documentation: [API-MD](https://github.com/ideastouch/js-array-ext/blob/master/docs/index.md)
