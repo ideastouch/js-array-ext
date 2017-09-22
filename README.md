@@ -39,9 +39,7 @@ var srtSliceFind = idtArray.sliceFind(srt, 3, compareNumber);
 var xCoords = [3, 4, 6, 8];
 var yCoords = [1, 5, 2, 4];
 var points = [];
-xCoords.forEach(x => {
-	yCoords.forEach(y, => {
-		points.push({x, y}); }) });
+xCoords.forEach(x => yCoords.forEach(y, => points.push({x, y}) ) );
 ```
 
 ### After
@@ -49,13 +47,17 @@ xCoords.forEach(x => {
 var idtArray = require('@ideastouch/js-array-ext');
 var xCoords = [3, 4, 6, 8];
 var yCoords = [1, 5, 2, 4];
+// We provide the combine function, we do not need call twice forEach anymore.
 var points = idtArray.combine(xCoords, yCoords, (x, y) => ({x, y}));
-	
-// BTW: If we want a new list of sorted points base on point distance
-// to origin (0, 0) we can just do:
+```
+
+### Bonus
+If we want a new list of sorted points base on point distance
+to origin `(0, 0)` we can just do:
+```javascript
 var DD = p => p.x * p.x + p.y * p.y; // DD is for Delta * Delta.
-var DDCompare = (p1, p2) => DD(p1) - DD(p2);
-var srtPnts = idtArray.sort(points, DDCompare);
+var PPDistance = (p1, p2) => DD(p1) - DD(p2);
+var srtPnts = idtArray.sort(points, PPDistance);
 ```
 ## Tests
 `npm test`
