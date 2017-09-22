@@ -4,11 +4,12 @@ JavaScript Array Extension
 =========
 A small library with array generic operations.
 
-#  WARNING!!!! The npm scope of this package was remove from his name.
+#  WARNING!!!! The npm scope of this package was removed from his name.
 Please do not install this package anymore, instead go to <https://www.npmjs.com/package/js-array-ext>.
 
 ## Installation
-	`npm install js-array-ext`
+Installation becomes: 
+`npm install js-array-ext`
 
 ### Philosophy under the hood
 I think that most of the time what algorithm's programer does is iterate in different ways over one or many list of element and for each iteration applying a process.
@@ -23,54 +24,52 @@ In this small library I try to do basically four things:
 All the functions in this library are built base on current JS Array methods (see <https://www.w3schools.com/jsref/jsref_obj_array.asp>) as much as possible or in function defined in this library.
 
 ## Installation
+~~npm install js-array-ext~~
 
-  ~~`npm install js-array-ext`~~
-
-	`npm install js-array-ext`
+`npm install js-array-ext`
 
 ## API
 - Markdown style documentation: [API-MD](https://github.com/ideastouch/js-array-ext/blob/master/docs/index.md)
 - HTML style documentation: [API-HTML](https://htmlpreview.github.io/?https://github.com/ideastouch/js-array-ext/blob/master/html/global.html)
 
 ## Usage
-
-  var idtArray = require('@ideastouch/js-array-ext');
-	var srt = [0, 1, 2, 3, 4, 5];
-	var compareNumber = (num1, num2) => num1 - num2;
-	var srtSliceFind = idtArray.sliceFind(srt, 3, compareNumber);
-  
+```javascript
+var idtArray = require('@ideastouch/js-array-ext');
+var srt = [0, 1, 2, 3, 4, 5];
+var compareNumber = (num1, num2) => num1 - num2;
+var srtSliceFind = idtArray.sliceFind(srt, 3, compareNumber);
+```  
   
   Output should be `[3, 4, 5]`
 
 ## Comparisons 
 ### Before
-
-	var xCoords = [3, 4, 6, 8];
-	var yCoords = [1, 5, 2, 4];
-	var points = [];
-	xCoords.forEach(x => {
-		yCoords.forEach(y, => {
-			points.push({x, y});
-		})
-	});
-
+```javascript
+var xCoords = [3, 4, 6, 8];
+var yCoords = [1, 5, 2, 4];
+var points = [];
+xCoords.forEach(x => {
+	yCoords.forEach(y, => {
+		points.push({x, y});
+	})
+});
+```
 
 ### After
-
-	var idtArray = require('@ideastouch/js-array-ext');
-	var xCoords = [3, 4, 6, 8];
-	var yCoords = [1, 5, 2, 4];
-	var points = idtArray.combine(xCoords, yCoords, (x, y) => ({x, y}));
+```javascript
+var idtArray = require('@ideastouch/js-array-ext');
+var xCoords = [3, 4, 6, 8];
+var yCoords = [1, 5, 2, 4];
+var points = idtArray.combine(xCoords, yCoords, (x, y) => ({x, y}));
 	
-	// BTW: If we want a new list of sorted points base on point distance
-	// to origin (0, 0) we can just do:
-	var DD = p => p.x * p.x + p.y * p.y; // DD is for Delta * Delta.
-	var DDCompare = (p1, p2) => DD(p1) - DD(p2);
-	var srtPnts = idtArray.sort(points, DDCompare);
-
+// BTW: If we want a new list of sorted points base on point distance
+// to origin (0, 0) we can just do:
+var DD = p => p.x * p.x + p.y * p.y; // DD is for Delta * Delta.
+var DDCompare = (p1, p2) => DD(p1) - DD(p2);
+var srtPnts = idtArray.sort(points, DDCompare);
+```
 ## Tests
-
-  `npm test`
+`npm test`
 
 ## Future Functions
 
