@@ -14,6 +14,13 @@ const srt2 = srtBig.slice(0, 1).concat(srtBig.slice(3));
 console.log('srt2: ' + srt2);
 const compareNumber = (num1, num2) => num1 - num2;
 
+test('piecesOfLength', t => {
+	const toBeSliced = [1, 2, 4, 5, 6, 7, 8, 9, 10];
+	const pieces = [[1, 2, 4], [5, 6, 7], [8, 9, 10]];
+	const sliced = arrayExt.piecesOfLength(toBeSliced, 3);
+	pieces.forEach((elm, idx) => t.is(String(elm), String(sliced[idx])));
+});
+
 test('equal', t => {
 	let value = arrayExt.equal(srt, srtCopy, compareNumber);
 	t.true(value, 'Two equal arrays equals');
