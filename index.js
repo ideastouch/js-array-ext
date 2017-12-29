@@ -7,6 +7,15 @@ const _MESSAGE_OF_NOT_SUPPORT_ARGUMENTS	= (argName, argObject) => typeof argObje
 */
 
 /**
+ * Make a new array with elements of 'lenght' elements besides the last one which could be smaller.
+ *
+ * @param {Array} arr Unsorted array.
+ * @param {Int} length
+*/
+const piecesOfLength = (arr, length) =>
+	arr.filter((elm, idx) => (idx % length) === 0).map((elm, idx) => arr.slice(length * idx, length * (idx + 1)));
+
+/**
  * Call to processFunction wich each possible combination of elements in arr1 and arr2
  * and return an array with the result of each call to processFunction. ej. We have two list of coords and
  * we want all possible combinations of points. Simple as call this functions with the list and the constructor.
@@ -181,14 +190,17 @@ const exclusion = (srtf1, srtf2, compareFunction) =>
 const mutualExclusion = (srtf1, srtf2, compareFunction) =>
 	exclusion(srtf1, srtf2, compareFunction).concat(exclusion(srtf2, srtf1, compareFunction)).sort(compareFunction);
 
-module.exports.equal = equal;
-module.exports.combine = combine;
-module.exports.sort = sort;
-module.exports.removeEquals = removeEquals;
-module.exports.sortFilter = sortFilter;
-module.exports.compare = compare;
-module.exports.union = union;
-module.exports.sliceFind = sliceFind;
-module.exports.intersection = intersection;
-module.exports.exclusion = exclusion;
-module.exports.mutualExclusion = mutualExclusion;
+module.exports = {
+	piecesOfLength,
+	equal,
+	combine,
+	sort,
+	removeEquals,
+	sortFilter,
+	compare,
+	union,
+	sliceFind,
+	intersection,
+	exclusion,
+	mutualExclusion
+};
